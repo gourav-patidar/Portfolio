@@ -46,6 +46,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
   }
 
   body {
@@ -75,6 +76,7 @@
   .marquee-mask {
     mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   }
+
 }
 
 @keyframes marquee {

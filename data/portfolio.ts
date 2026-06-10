@@ -6,7 +6,6 @@ import {
   GraduationCap,
   Layers3,
   MapPin,
-  Medal,
   MonitorSmartphone,
   RadioTower,
   Smartphone,
@@ -20,7 +19,7 @@ export const profile = {
   title: "Flutter Developer",
   focus: "Mobile app development, Flutter Web, and native SDK bridges",
   location: "Indore, India",
-  availability: "Available for remote Flutter roles",
+  availability: "Open to new projects",
   email: "er.gourav.patidar@gmail.com",
   github: "https://github.com/gourav-patidar",
   linkedin: "https://in.linkedin.com/in/gourav-patidar1",
@@ -36,10 +35,10 @@ export const navItems = [
 ];
 
 export const stats = [
-  { value: "2+", label: "Years shipping" },
-  { value: "1yr+", label: "Flutter Web" },
-  { value: "3", label: "SDK surfaces" },
-  { value: "4+", label: "Apps shipped" },
+  { value: "3+", label: "Years experience" },
+  { value: "5+", label: "Projects shipped" },
+  { value: "12mo+", label: "Flutter Web ownership" },
+  { value: "1", label: "Published SDK" },
 ];
 
 export const projects = [
@@ -102,12 +101,11 @@ export const experiences = [
     company: "Zehntech Technologies Pvt. Ltd.",
     period: "Jul 2023 - Present",
     location: "Indore, India",
-    badge: "Employee of the Month",
     points: [
       "Led Flutter Web development for Solved Dashboard, a production enterprise platform.",
       "Built Uptick Flutter SDK bridging native Android and iOS via MethodChannel and PlatformView.",
       "Contributed to UptickAds iOS SDK v2 with XCTest coverage across SDK versions.",
-      "Automated CI/CD pipelines to AWS CloudFront through GitHub Actions.",
+      "Contributed to Flutter web deployments on AWS CloudFront alongside the infrastructure team.",
       "Shipped apps to Google Play Store and Apple App Store with careful release workflows.",
     ],
   },
@@ -165,7 +163,6 @@ export const aboutFacts = [
   { icon: MapPin, label: "Indore, Madhya Pradesh, India" },
   { icon: MonitorSmartphone, label: "Mobile, web, and SDK product surfaces" },
   { icon: GraduationCap, label: "B.Tech IT, 8.2 CGPA, 2023" },
-  { icon: Medal, label: "Employee of the Month recognition" },
 ];
 
 export const marquee = [

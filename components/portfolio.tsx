@@ -9,7 +9,6 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Sparkles,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -93,29 +92,14 @@ function SectionHeader({
 function DeviceShowcase() {
   return (
     <div className="relative mx-auto w-full max-w-[390px]">
-      <div className="absolute -left-4 top-8 hidden h-52 w-28 rounded-[2rem] border border-border bg-card shadow-soft sm:block" />
-      <div className="relative rounded-[2.2rem] border border-border bg-foreground p-2 shadow-soft dark:bg-black">
+      <div className="absolute -left-4 top-8 hidden h-52 w-28 rounded-[2rem] border border-zinc-900/15 bg-card shadow-soft ring-1 ring-zinc-900/10 dark:border-white/20 dark:ring-white/20 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.2),0_20px_60px_rgba(0,0,0,0.65)] sm:block" />
+      <div className="relative rounded-[2.2rem] border border-zinc-900/15 bg-foreground p-2 shadow-soft ring-1 ring-zinc-900/10 dark:border-white/20 dark:bg-black dark:ring-white/20 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.2),0_20px_60px_rgba(0,0,0,0.65)]">
         <div className="overflow-hidden rounded-[1.75rem] bg-background">
           <div className="flex items-center justify-between border-b border-border px-5 py-4">
             <span className="h-2 w-16 rounded-full bg-muted" />
             <span className="h-2 w-2 rounded-full bg-primary" />
           </div>
           <div className="space-y-5 p-5">
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Release health
-              </p>
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                {["99.9", "42ms", "0"].map((item, index) => (
-                  <div key={item} className="rounded-md border border-border bg-card p-3">
-                    <p className="text-lg font-semibold">{item}</p>
-                    <p className="mt-1 text-[10px] text-muted-foreground">
-                      {["uptime", "frame", "crashes"][index]}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
             <div className="rounded-lg border border-border bg-card p-4">
               <div className="flex items-center justify-between">
                 <div>
@@ -155,13 +139,17 @@ function DeviceShowcase() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/82 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/88 shadow-sm backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center gap-3" aria-label="Gourav Patidar home">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-foreground text-sm font-semibold text-background">
-            {profile.initials}
+          <img
+            src="/profile.png"
+            alt=""
+            className="h-9 w-9 rounded-full object-cover"
+          />
+          <span className="hidden text-[17px] font-semibold leading-none sm:inline">
+            {profile.name}
           </span>
-          <span className="hidden text-sm font-medium sm:inline">{profile.name}</span>
         </a>
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
           {navItems.map((item) => (
@@ -188,18 +176,24 @@ function Hero() {
   return (
     <section id="top" className="container grid gap-12 pb-16 pt-10 md:grid-cols-[1.08fr_0.92fr] md:pb-24 md:pt-20">
       <Reveal>
-        <Badge variant="outline" className="rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.16em]">
-          <span className="mr-2 h-2 w-2 rounded-full bg-accent" />
+        <Badge variant="outline" className="rounded-full px-3 py-1 font-mono text-[11px] tracking-[0.12em]">
+          <span className="mr-2 h-2 w-2 rounded-full bg-emerald-400" />
           {profile.availability}
         </Badge>
-        <h1 className="mt-7 max-w-4xl font-display text-6xl leading-[0.95] tracking-normal text-balance sm:text-7xl lg:text-8xl">
-          Mobile apps with native depth.
+        <h1 className="mt-7 max-w-4xl font-display text-4xl leading-[1.05] tracking-normal text-balance sm:text-5xl lg:text-6xl">
+          Flutter. iOS. Android. Web. Shipped.
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-          {profile.summary}
+          I&apos;ve taken apps from idea to App Store. 3 years. Enterprise clients. Native SDK depth.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button asChild size="default" className="rounded-full">
+            <a href="#contact">
+              Work with me
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
+          <Button asChild size="default" variant="outline" className="rounded-full">
             <a href="#work">
               View selected work
               <ArrowDown className="h-4 w-4" />
@@ -241,7 +235,7 @@ function About() {
         <Reveal delay={0.08}>
           <div className="space-y-5 text-sm leading-7 text-muted-foreground">
             <p>
-              I am a Flutter developer at Zehntech Technologies with 2+ years of professional
+              I am a Flutter developer at Zehntech Technologies with 3+ years of professional
               experience shipping apps that real users depend on, from enterprise web dashboards
               to native iOS SDK work.
             </p>
@@ -349,10 +343,6 @@ function Experience() {
                       </p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         <Badge variant="outline" className="rounded-full">
-                          <Sparkles className="mr-1.5 h-3 w-3" />
-                          {item.badge}
-                        </Badge>
-                        <Badge variant="outline" className="rounded-full">
                           <MapPin className="mr-1.5 h-3 w-3" />
                           {item.location}
                         </Badge>
@@ -414,6 +404,16 @@ function Approach() {
 }
 
 function Stack() {
+  const architecturePattern = `lib/
+├── core/          # Utilities, constants, error handling
+├── features/
+│   └── feature/
+│       ├── data/         # APIs, models, datasources
+│       ├── domain/       # Entities, use cases, repositories
+│       └── presentation/
+│           ├── bloc/     # State management
+│           └── ui/       # Widgets, screens`;
+
   return (
     <section id="stack" className="border-y border-border bg-card/50">
       <div className="container py-16 md:py-24">
@@ -458,6 +458,14 @@ function Stack() {
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.12}>
+          <div className="mt-4 rounded-lg border border-border bg-zinc-950 p-5 shadow-soft md:p-6">
+            <h3 className="text-base font-semibold text-zinc-100">Architecture pattern</h3>
+            <pre className="mt-4 overflow-x-auto rounded-md border border-white/10 bg-black/35 p-4 font-mono text-xs leading-6 text-zinc-300 sm:text-sm">
+              <code>{architecturePattern}</code>
+            </pre>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -474,26 +482,31 @@ function Contact() {
                 06 / Contact
               </p>
               <h2 className="mt-4 max-w-2xl font-display text-4xl leading-none sm:text-5xl">
-                Let&apos;s build a mobile product people can trust.
+                Have a project in mind?
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground">
-                I am actively looking for remote Flutter developer roles and mobile-focused
-                product teams where I can own features end to end.
+                Let&apos;s talk. I work with startups and product teams to ship Flutter apps —
+                from first commit to store release.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-              <Button asChild className="rounded-full">
-                <a href={`mailto:${profile.email}`}>
-                  <Mail className="h-4 w-4" />
-                  Email me
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="rounded-full">
-                <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </a>
-              </Button>
+            <div className="space-y-4">
+              <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+                <Button asChild className="rounded-full">
+                  <a href={`mailto:${profile.email}`}>
+                    <Mail className="h-4 w-4" />
+                    Email me
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full">
+                  <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                    <Linkedin className="h-4 w-4" />
+                    LinkedIn
+                  </a>
+                </Button>
+              </div>
+              <p className="text-xs leading-5 text-muted-foreground">
+                Based in India · Available across time zones · Quick to respond
+              </p>
             </div>
           </div>
         </div>
@@ -535,7 +548,7 @@ function Footer() {
 
 export function Portfolio() {
   return (
-    <main className={cn("min-h-screen overflow-hidden bg-background")}>
+    <main className={cn("min-h-screen overflow-hidden bg-background pt-16")}>
       <div className="pointer-events-none fixed inset-0 -z-10 noise opacity-30" />
       <Header />
       <Hero />
